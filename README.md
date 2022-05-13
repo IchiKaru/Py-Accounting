@@ -40,32 +40,9 @@ Date: 05/06/2022
 3. New lists and variables namely `revenue_list`,`revenue_value_list`,`expense_list`,`expense_value_list`,`withdrawal`, and `withdrawal_value`.
 4. Renamed `user_choices()` to `start_program()`
 5. Copied and pasted the codes for expense, revenue, and withdrawals:
-`    n = int(input("How many withdrawal entries incurred?: "))
+![image](https://user-images.githubusercontent.com/99703611/168235222-52cf0412-92a2-4214-a0cd-2bea9615aa81.png)
 
-    print("\n")
-    for i in range(0, n):
-        print("Enter the expenses incurred", i, )
-        withdraw = input()
-        withdrawal.append(withdraw)
-    print("You have entered ", withdrawal)
-    time.sleep(0.5)
-    print("\n")
-    for i in range(0, n):
-        print("Enter the expense value for ", i, )
-        withdrawn = eval(input())
-        withdrawal_value.append(withdrawn)
-    print("You have entered ", expense_value_list)
-    time.sleep(0.5)
-    #shows what user have entered
-    print('You have entered the following account title(s):',withdrawal)
-    print('You have entered the following asset value:',withdrawal_value)
-    time.sleep(1)
-    #user confirmation
-    user_confirmation=input('is the following information correct?:')
-    if user_confirmation=='y':
-        Retry_parameter()
-    elif user_confirmation=='n':
-        time.sleep(0.5)
-        recording(user_choice)`
- It uses that format now.
- 6. If the credit and debit side are not equal, it will notify the user and will also display the inequality.
+6. If the credit and debit side are not equal, it will notify the user and will also display the inequality.
+7. Cleaned Up the Code
+
+### More things Will be added
