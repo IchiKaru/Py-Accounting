@@ -376,5 +376,5 @@ if check=='y':
             elif seeif=='n':
                 print('ok.')
 else:
-    print('[Program is Finished') 
+    print("Your recorded values are now gone. Sorry, this is a work in progress.") 
 	
