@@ -329,26 +329,27 @@ def Retry_parameter():
     if again=='y':
         start_program()
     elif again=='n':
-        print('Your values have been saved')
+        print('The values you have recorded are now stored on RAM. To avoid loss, do not quit the application.')
         print('Current Assets:', Current_A_list)
         print('Total Current Asset Value', sum(Current_A_Value_List))
-        print('-------------------------------')
+        print('-'*20)
         print('Fixed Assets:', Fixed_A_list)
         print('Total Fixed Asset Value:', sum(Fixed_A_Value_List))
-        print('-------------------------------')
+        print('-'*20)
         print('Intangible Assets:', Current_A_list)
         print('Total Intangible Asset Value:', sum(intangible_A_Value_List))
-        print('-------------------------------')
+        print('-'*20)
         print('Liabilities:', Current_L_list)
         print('Total Liabilities:', sum(Current_L_Value_List))
-        print('-------------------------------')
+        print('-'*20)
         print('Capital:', Current_C_list)
         print('Total Capital:', sum(Current_C_Value_List))
-
+	print('-'*20)
+	
 variables()
 start_program()
 
-check=input('Would you like to check if the items you inputted are correct using the basic accounting equation? [y,n]:')
+check=input('Would you like to check for imbalances in both credit side and debit side? [y,n]:')
 if check=='y':
     if sum(Current_A_Value_List)+sum(Fixed_A_Value_List)+sum(intangible_A_Value_List)==sum(Current_L_Value_List)+sum(Current_C_Value_List)+sum(revenue_value_list)-sum(expense_value_list)-sum(withdrawal_value):
         time.sleep(0.5)
