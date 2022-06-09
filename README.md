@@ -45,4 +45,8 @@ Date: 05/06/2022
 6. If the credit and debit side are not equal, it will notify the user and will also display the inequality.
 7. Cleaned Up the Code
 
+### Update
+06/09/2022
+1. Now under new management. Will try to take down the original file because of change of principal author.
+
 ### More things Will be added
