@@ -49,4 +49,8 @@ Date: 05/06/2022
 06/09/2022
 1. Now under new management. Will try to take down the original file because of change of principal author.
 
+### Update
+1. Changed a few more grammar-related questions.
+2. Tweaked few choices for a better user experience
+
 ### More things Will be added
