@@ -60,13 +60,13 @@ def variables():
 def start_program():
     print('What do you choose to Record?')
     time.sleep(1.5)
-    user_choice=input('a for assets, l for liabilities, and c for Capital:')
+    user_choice=input("Enter 'Assets', 'Liabilities', or 'Capital':")
     print('-'*20)
     time.sleep(0.5)
     print('Follow all instructions carefully. If there are any irregularities, visit https://github.com/IjiRay/Py-Accounting.')
 
-    if user_choice=='a':
-        asset_type=input("'F' for fixed, 'C' for current, 'I' for intangible:")
+    if user_choice=='Assets':
+        asset_type=input("What type of assets is it? 'F' for fixed, 'C' for current, 'I' for intangible:")
         if asset_type=='C':
             current_asset_record()
         elif asset_type=='F':
@@ -264,7 +264,7 @@ def fixed_asset_record():
         recording(user_choice)
 
 def recording(user_choice):
-    if user_choice=='l':
+    if user_choice=='Liabilities':
         n = int(input("How many liability account titles?: "))
 
         print("\n")
@@ -291,7 +291,7 @@ def recording(user_choice):
         elif user_confirmation=='n':
             time.sleep(0.5)
             recording(user_choice)
-    elif user_choice=='c':
+    elif user_choice=='Capital':
         n = int(input("How many Capital account titles?: "))
 
         print("\n")
