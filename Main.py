@@ -11,62 +11,62 @@ print('a lot of issues. For any problems, simply raise an issue')
 print('at the github page where you got this program.')
 print('----------------------------------------------------------')
 print('')
-print("The basic accounting equation is: Total Assets = Liabilities + Owner's Capital - Withdrawals + Revenues - Expenses")
-print('Fixed, intangible, and current assets are found under ASSETS. Expenses, revenues, and withdrawals are under CAPITAL/EQUITY')
+print("The basic accounting equation is: Total Assets = Liabilities + Owner's Capital_Value - Withdrawals + Revenues - Expenses")
+print('Fixed, intangible, and current assets are found under ASSETS. Expenses, revenues, and Withdrawals are under CAPITAL/EQUITY')
 print('Keep this in mind when using the program')
 print('')
 
 time.sleep(1)
 def variables():
 #global assets list
-    global Current_A_list
-    Current_A_list=[]
-    global Current_A_Value_List
-    Current_A_Value_List=[]
-    global Fixed_A_list
-    Fixed_A_list=[]
-    global Fixed_A_Value_List
-    Fixed_A_Value_List=[]
-    global intangible_A_list
-    intangible_A_list=[]
-    global intangible_A_Value_List
-    intangible_A_Value_List=[]
+    global Current_Assets
+    Current_Assets=[]
+    global Current_Assets_Value
+    Current_Assets_Value=[]
+    global Fixed_Assets
+    Fixed_Assets=[]
+    global Fixed_Assets_Value
+    Fixed_Assets_Value=[]
+    global Intangible_Assets
+    Intangible_Assets=[]
+    global Intangible_Assets_Value
+    Intangible_Assets_Value=[]
     #global liability list
-    global Current_L_list
-    Current_L_list=[]
-    global Current_L_Value_List
-    Current_L_Value_List=[]
-    #global Capital (or equity depending on your region) List
-    global Current_C_list
-    Current_C_list=[]
-    global Current_C_Value_List
-    Current_C_Value_List=[]
+    global Current_Liabilities
+    Current_Liabilities=[]
+    global Current_Liabilities_Amount
+    Current_Liabilities_Amount=[]
+    #global Capital_Value (or equity depending on your region) List
+    global Capital_Entry
+    Capital_Entry=[]
+    global Capital_Value
+    Capital_Value=[]
     #extended global variables
-    global revenue_list
-    revenue_list=[]
-    global revenue_value_list
-    revenue_value_list=[]
-    global expense_list
-    expense_list=[]
-    global expense_value_list
-    expense_value_list=[]
-    global withdrawal
-    withdrawal=[]
-    global withdrawal_value
-    withdrawal_value=[]
+    global Revenues
+    Revenues=[]
+    global Revenue_Quantity
+    Revenue_Quantity=[]
+    global Expenditures
+    Expenditures=[]
+    global Expenditure_Cost
+    Expenditure_Cost=[]
+    global Withdrawal
+    Withdrawal=[]
+    global Withdrawal_value
+    Withdrawal_value=[]
     #global variables
     global user_choice
 
 def start_program():
     print('What do you choose to Record?')
     time.sleep(1.5)
-    user_choice=input('a for assets, l for liabilities, and c for Capital:')
+    user_choice=input("Enter 'Assets', 'Liabilities', or 'Capital_Value':")
     print('-'*20)
     time.sleep(0.5)
-    print('Follow all instructions carefully. If there are any irregularities, visit https://github.com/IjiRay/Py-Accounting.')
+    print('Follow all instructions carefully. If there are any irregularities, visit https://github.com/04raymond/Py-Accounting.')
 
-    if user_choice=='a':
-        asset_type=input("'F' for fixed, 'C' for current, 'I' for intangible:")
+    if user_choice=='Assets':
+        asset_type=input("What type of assets is it? 'F' for fixed, 'C' for current, 'I' for intangible:")
         if asset_type=='C':
             current_asset_record()
         elif asset_type=='F':
@@ -92,26 +92,26 @@ def start_program():
 def choice_handle(user_choice):
 	recording(user_choice)
 
-def withdrawal_record():
-    n = int(input("How many withdrawal entries incurred?: "))
+def Withdrawal_record():
+    n = int(input("How many Withdrawal entries incurred?: "))
 
     print("\n")
     for i in range(0, n):
         print("Enter the expenses incurred", i, )
         withdraw = input()
-        withdrawal.append(withdraw)
-    print("You have entered ", withdrawal)
+        Withdrawal.append(withdraw)
+    print("You have entered ", Withdrawal)
     time.sleep(0.5)
     print("\n")
     for i in range(0, n):
         print("Enter the expense value for ", i, )
         withdrawn = eval(input())
-        withdrawal_value.append(withdrawn)
-    print("You have entered ", expense_value_list)
+        Withdrawal_value.append(withdrawn)
+    print("You have entered ", Expenditure_Cost)
     time.sleep(0.5)
     #shows what user have entered
-    print('You have entered the following account title(s):',withdrawal)
-    print('You have entered the following asset value:',withdrawal_value)
+    print('You have entered the following account title(s):',Withdrawal)
+    print('You have entered the following asset value:',Withdrawal_value)
     time.sleep(1)
     #user confirmation
     user_confirmation=input('is the following information correct?:')
@@ -128,19 +128,19 @@ def expense_record():
     for i in range(0, n):
         print("Enter the expenses incurred", i, )
         expense = input()
-        expense_list.append(expense)
-    print("You have entered ", expense_list)
+        Expenditures.append(expense)
+    print("You have entered ", Expenditures)
     time.sleep(0.5)
     print("\n")
     for i in range(0, n):
         print("Enter the expense value for ", i, )
         expensevalue = eval(input())
-        expense_value_list.append(expensevalue)
-    print("You have entered ", expense_value_list)
+        Expenditure_Cost.append(expensevalue)
+    print("You have entered ", Expenditure_Cost)
     time.sleep(0.5)
     #shows what user have entered
-    print('You have entered the following account title(s):',expense_list)
-    print('You have entered the following asset value:',expense_value_list)
+    print('You have entered the following account title(s):',Expenditures)
+    print('You have entered the following asset value:',Expenditure_Cost)
     time.sleep(1)
     #user confirmation
     user_confirmation=input('is the following information correct?:')
@@ -156,19 +156,19 @@ def revenue_record():
     for i in range(0, n):
         print("Enter the revenue/transaction name incurred", i, )
         revenue = input()
-        revenue_list.append(revenue)
-    print("You have entered ", revenue_list)
+        Revenues.append(revenue)
+    print("You have entered ", Revenues)
     time.sleep(0.5)
     print("\n")
     for i in range(0, n):
         print("Enter the asset value for ", i, )
         revenuevalue = eval(input())
-        revenue_value_list.append(revenuevalue)
-    print("You have entered ", revenue_value_list)
+        Revenue_Quantity.append(revenuevalue)
+    print("You have entered ", Revenue_Quantity)
     time.sleep(0.5)
     #shows what user have entered
-    print('You have entered the following account title(s):',revenue_list)
-    print('You have entered the following asset value:',revenue_value_list)
+    print('You have entered the following account title(s):',Revenues)
+    print('You have entered the following asset value:',Revenue_Quantity)
     time.sleep(1)
     #user confirmation
     user_confirmation=input('is the following information correct?:')
@@ -184,19 +184,19 @@ def intangible_asset_record():
     for i in range(0, n):
         print("Enter the asset", i, )
         asset = input()
-        intangible_A_list.append(asset)
-    print("You have entered ", intangible_A_list)
+        Intangible_Assets.append(asset)
+    print("You have entered ", Intangible_Assets)
     time.sleep(0.5)
     print("\n")
     for i in range(0, n):
         print("Enter the asset value for ", i, )
         assetvalue = eval(input())
-        intangible_A_Value_List.append(assetvalue)
-    print("You have entered ", intangible_A_Value_List)
+        Intangible_Assets_Value.append(assetvalue)
+    print("You have entered ", Intangible_Assets_Value)
     time.sleep(0.5)
     #shows what user have entered
-    print('You have entered the following account title(s):',intangible_A_list)
-    print('You have entered the following asset value:',intangible_A_Value_List)
+    print('You have entered the following account title(s):',Intangible_Assets)
+    print('You have entered the following asset value:',Intangible_Assets_Value)
     time.sleep(1)
     #user confirmation
     user_confirmation=input('is the following information correct?:')
@@ -212,19 +212,19 @@ def current_asset_record():
     for i in range(0, n):
         print("Enter the asset", i, )
         asset = input()
-        Current_A_list.append(asset)
-    print("You have entered ", Current_A_list)
+        Current_Assets.append(asset)
+    print("You have entered ", Current_Assets)
     time.sleep(0.5)
     print("\n")
     for i in range(0, n):
         print("Enter the asset value for ", i, )
         assetvalue = eval(input())
-        Current_A_Value_List.append(assetvalue)
-    print("You have entered ", Current_A_Value_List)
+        Current_Assets_Value.append(assetvalue)
+    print("You have entered ", Current_Assets_Value)
     time.sleep(0.5)
     #shows what user have entered
-    print('You have entered the following account title(s):',Current_A_list)
-    print('You have entered the following asset value:',Current_A_Value_List)
+    print('You have entered the following account title(s):',Current_Assets)
+    print('You have entered the following asset value:',Current_Assets_Value)
     time.sleep(1)
     #user confirmation
     user_confirmation=input('is the following information correct?:')
@@ -241,19 +241,19 @@ def fixed_asset_record():
     for i in range(0, n):
         print("Enter the asset", i, )
         asset = input()
-        Fixed_A_list.append(asset)
-    print("You have entered ", Fixed_A_list)
+        Fixed_Assets.append(asset)
+    print("You have entered ", Fixed_Assets)
     time.sleep(0.5)
     print("\n")
     for i in range(0, n):
         print("Enter the asset value for ", i, )
         assetvalue = eval(input())
-        Fixed_A_Value_List.append(assetvalue)
-    print("You have entered ", Fixed_A_Value_List)
+        Fixed_Assets_Value.append(assetvalue)
+    print("You have entered ", Fixed_Assets_Value)
     time.sleep(0.5)
     #shows what user have entered
-    print('You have entered the following account title(s):',Fixed_A_list)
-    print('You have entered the following asset value:',Fixed_A_Value_List)
+    print('You have entered the following account title(s):',Fixed_Assets)
+    print('You have entered the following asset value:',Fixed_Assets_Value)
     time.sleep(1)
     #user confirmation
     user_confirmation=input('is the following information correct?:')
@@ -264,25 +264,25 @@ def fixed_asset_record():
         recording(user_choice)
 
 def recording(user_choice):
-    if user_choice=='l':
+    if user_choice=='Liabilities':
         n = int(input("How many liability account titles?: "))
 
         print("\n")
         for i in range(0, n):
             print("Enter the liability", i, )
             liability = input()
-            Current_L_list.append(liability)
-        print("You have entered ", Current_L_list)
+            Current_Liabilities.append(liability)
+        print("You have entered ", Current_Liabilities)
         time.sleep(0.5)
         print("\n")
         for i in range(0, n):
             print("Enter the asset value for ", i, )
             liabilityvalue = eval(input())  
-            Current_L_Value_List.append(liabilityvalue)
+            Current_Liabilities_Amount.append(liabilityvalue)
         time.sleep(0.5)
         #shows what user have entered
-        print('You have entered the following account title(s):',Current_L_list)
-        print('You have entered the following liability values(s)',Current_L_Value_List)
+        print('You have entered the following account title(s):',Current_Liabilities)
+        print('You have entered the following liability values(s)',Current_Liabilities_Amount)
         time.sleep(1)
         #user confirmation
         user_confirmation=input('is the following information correct?[y,n]:')
@@ -291,25 +291,25 @@ def recording(user_choice):
         elif user_confirmation=='n':
             time.sleep(0.5)
             recording(user_choice)
-    elif user_choice=='c':
-        n = int(input("How many Capital account titles?: "))
+    elif user_choice=='Capital_Value':
+        n = int(input("How many Capital_Value account titles?: "))
 
         print("\n")
         for i in range(0, n):
-            print("Enter the Capital Account Title", i, )
+            print("Enter the Capital_Value Account Title", i, )
             capital = input()
-            Current_C_list.append(capital)
-        print("You have entered ", Current_C_list)
+            Capital_Entry.append(capital)
+        print("You have entered ", Capital_Entry)
         time.sleep(0.5)
         print("\n")
         for i in range(0, n):
-            print("Enter the Capital value for ", i, )
+            print("Enter the Capital_Value value for ", i, )
             capitalvalue = eval(input())
-            Current_C_Value_List.append(capitalvalue)
+            Capital_Value.append(capitalvalue)
         time.sleep(0.5)
         #shows what user have entered
-        print('You have entered the following account title(s):',Current_C_list)
-        print('You have entered the following capital values(s)',Current_C_Value_List)
+        print('You have entered the following account title(s):',Capital_Entry)
+        print('You have entered the following capital values(s)',Capital_Value)
         time.sleep(0.5)
         #user confirmation
         user_confirmation=input('is the following information correct?[y,n]:')
@@ -329,51 +329,52 @@ def Retry_parameter():
     if again=='y':
         start_program()
     elif again=='n':
-        print('Your values have been saved')
-        print('Current Assets:', Current_A_list)
-        print('Total Current Asset Value', sum(Current_A_Value_List))
-        print('-------------------------------')
-        print('Fixed Assets:', Fixed_A_list)
-        print('Total Fixed Asset Value:', sum(Fixed_A_Value_List))
-        print('-------------------------------')
-        print('Intangible Assets:', Current_A_list)
-        print('Total Intangible Asset Value:', sum(intangible_A_Value_List))
-        print('-------------------------------')
-        print('Liabilities:', Current_L_list)
-        print('Total Liabilities:', sum(Current_L_Value_List))
-        print('-------------------------------')
-        print('Capital:', Current_C_list)
-        print('Total Capital:', sum(Current_C_Value_List))
-
+        print('The values you have recorded are now stored on RAM. To avoid loss, do not quit the application.')
+        print('Current Assets:', Current_Assets)
+        print('Total Current Asset Value', sum(Current_Assets_Value))
+        print('-'*20)
+        print('Fixed Assets:', Fixed_Assets)
+        print('Total Fixed Asset Value:', sum(Fixed_Assets_Value))
+        print('-'*20)
+        print('Intangible Assets:', Current_Assets)
+        print('Total Intangible Asset Value:', sum(Intangible_Assets_Value))
+        print('-'*20)
+        print('Liabilities:', Current_Liabilities)
+        print('Total Liabilities:', sum(Current_Liabilities_Amount))
+        print('-'*20)
+        print('Capital_Value:', Capital_Entry)
+        print('Total Capital_Value:', sum(Capital_Value))
+        print('-'*20)
+	
 variables()
 start_program()
 
-check=input('Would you like to check if the items you inputted are correct using the basic accounting equation? [y,n]:')
+check=input('Would you like to check for imbalances in both credit side and debit side? [y,n]:')
 if check=='y':
-    if sum(Current_A_Value_List)+sum(Fixed_A_Value_List)+sum(intangible_A_Value_List)==sum(Current_L_Value_List)+sum(Current_C_Value_List)+sum(revenue_value_list)-sum(expense_value_list)-sum(withdrawal_value):
+    if sum(Current_Assets_Value)+sum(Fixed_Assets_Value)+sum(Intangible_Assets_Value)==sum(Current_Liabilities_Amount)+sum(Capital_Value)+sum(Revenue_Quantity)-sum(Expenditure_Cost)-sum(Withdrawal_value):
         time.sleep(0.5)
         print('OK')
     else:
         time.sleep(0.5)
         print('The inputted values are not equal.')
-        if sum(Current_A_Value_List)+sum(Fixed_A_Value_List)+sum(intangible_A_Value_List)>sum(Current_L_Value_List)+sum(Current_C_Value_List)+sum(revenue_value_list)-sum(expense_value_list)-sum(withdrawal_value):
+        if sum(Current_Assets_Value)+sum(Fixed_Assets_Value)+sum(Intangible_Assets_Value)>sum(Current_Liabilities_Amount)+sum(Capital_Value)+sum(Revenue_Quantity)-sum(Expenditure_Cost)-sum(Withdrawal_value):
             print('The debit side is higher then the credit side.')
             time.sleep(1)
-            print('The debit side is', sum(Current_A_Value_List)+sum(Fixed_A_Value_List)+sum(intangible_A_Value_List),'and the credit side is', sum(Current_L_Value_List)+sum(Current_C_Value_List)+sum(revenue_value_list)-sum(expense_value_list)-sum(withdrawal_value))
+            print('The debit side is', sum(Current_Assets_Value)+sum(Fixed_Assets_Value)+sum(Intangible_Assets_Value),'and the credit side is', sum(Current_Liabilities_Amount)+sum(Capital_Value)+sum(Revenue_Quantity)-sum(Expenditure_Cost)-sum(Withdrawal_value))
             seeif=input('Would you like to fix the errors? [y,n]:')
             if seeif=='y':
                 start_program()
             elif seeif=='n':
                 print('ok.')
-        if sum(Current_A_Value_List)+sum(Fixed_A_Value_List)+sum(intangible_A_Value_List)<sum(Current_L_Value_List)+sum(Current_C_Value_List)+sum(revenue_value_list)-sum(expense_value_list)-sum(withdrawal_value):
+        if sum(Current_Assets_Value)+sum(Fixed_Assets_Value)+sum(Intangible_Assets_Value)<sum(Current_Liabilities_Amount)+sum(Capital_Value)+sum(Revenue_Quantity)-sum(Expenditure_Cost)-sum(Withdrawal_value):
             print('The credit side is higher than the debit side.')
             time.sleep(1)
-            print('The debit side is', sum(Current_A_Value_List)+sum(Fixed_A_Value_List)+sum(intangible_A_Value_List),'and the credit side is', sum(Current_L_Value_List)+sum(Current_C_Value_List)+sum(revenue_value_list)-sum(expense_value_list)-sum(withdrawal_value))
+            print('The debit side is', sum(Current_Assets_Value)+sum(Fixed_Assets_Value)+sum(Intangible_Assets_Value),'and the credit side is', sum(Current_Liabilities_Amount)+sum(Capital_Value)+sum(Revenue_Quantity)-sum(Expenditure_Cost)-sum(Withdrawal_value))
             seeif=input('Would you like to fix the errors? [y,n]:')
             if seeif=='y':
                 start_program()
             elif seeif=='n':
                 print('ok.')
 else:
-    print('[Program is Finished') 
+    print("Your recorded values are now gone. Sorry, this is a work in progress.") 
 	
