@@ -60,28 +60,28 @@ def variables():
 def start_program():
     print('What do you choose to Record?')
     time.sleep(1.5)
-    user_choice=input("Enter 'Assets', 'Liabilities', or 'Capital_Value':")
+    user_choice = input("Enter 'Assets', 'Liabilities', or 'Capital':")
     print('-'*20)
     time.sleep(0.5)
     print('Follow all instructions carefully. If there are any irregularities, visit https://github.com/04raymond/Py-Accounting.')
 
-    if user_choice=='Assets':
-        asset_type=input("What type of assets is it? 'F' for fixed, 'C' for current, 'I' for intangible:")
-        if asset_type=='C':
+    if user_choice == 'Assets':
+        asset_type = input("What type of assets is it? 'F' for fixed, 'C' for current, 'I' for intangible:")
+        if asset_type == 'C':
             current_asset_record()
-        elif asset_type=='F':
+        elif asset_type == 'F':
             fixed_asset_record()
-        elif asset_type=='I':
+        elif asset_type =='I':
             intangible_asset_record()
         else:
             print('Sorry, that is an invalid syntax.')
             time.sleep(0.5)
             start_program()
-    elif user_choice=='c':
-        capital_type=input("'R' for revenue and 'E' for expenses. If none, enter [n]:")
-        if capital_type=='R':
+    elif user_choice == 'Capital':
+        capital_type = input("'R' for revenue and 'E' for expenses. If none, enter [n]:")
+        if capital_type == 'R':
             revenue_record()
-        elif capital_type=='E':
+        elif capital_type == 'E':
             expense_record()
         else:
             recording(user_choice)
@@ -227,10 +227,10 @@ def current_asset_record():
     print('You have entered the following asset value:',Current_Assets_Value)
     time.sleep(1)
     #user confirmation
-    user_confirmation=input('is the following information correct?:')
-    if user_confirmation=='y':
+    user_confirmation = input('is the following information correct?[y,n]:')
+    if user_confirmation == 'y':
         Retry_parameter()
-    elif user_confirmation=='n':
+    elif user_confirmation == 'n':
         time.sleep(0.5)
         recording(user_choice)
 def fixed_asset_record():
@@ -330,22 +330,25 @@ def Retry_parameter():
         start_program()
     elif again=='n':
         print('The values you have recorded are now stored on RAM. To avoid loss, do not quit the application.')
-        print('Current Assets:', Current_Assets)
-        print('Total Current Asset Value', sum(Current_Assets_Value))
-        print('-'*20)
-        print('Fixed Assets:', Fixed_Assets)
-        print('Total Fixed Asset Value:', sum(Fixed_Assets_Value))
-        print('-'*20)
-        print('Intangible Assets:', Current_Assets)
-        print('Total Intangible Asset Value:', sum(Intangible_Assets_Value))
-        print('-'*20)
-        print('Liabilities:', Current_Liabilities)
-        print('Total Liabilities:', sum(Current_Liabilities_Amount))
-        print('-'*20)
         print('Capital_Value:', Capital_Entry)
         print('Total Capital_Value:', sum(Capital_Value))
         print('-'*20)
-	
+        for a, b in zip(Current_Assets, Current_Assets_Value):
+            print(a, b)  
+        print('-'*20)
+        for a, b in zip(Fixed_Assets, Fixed_Assets_Value):
+            print(a, b)
+        print('-'*20)
+        for a, b in zip(Intangible_Assets, Intangible_Assets_Value):
+            print(a, b)
+        print('-'*20)
+        for a, b in zip(Current_Liabilities, Current_Liabilities_Amount):
+            print(a, b)
+        print('-'*20)
+        for a, b in zip(Capital_Entry, Capital_Value):
+            print(a, b)
+        print('-'*20)
+
 variables()
 start_program()
 
@@ -376,5 +379,5 @@ if check=='y':
             elif seeif=='n':
                 print('ok.')
 else:
-    print("Your recorded values are now gone. Sorry, this is a work in progress.") 
+    print("Your recorded values are now gone. Sorry, this is a work in progress. Hahaha!") 
 	
