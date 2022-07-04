@@ -2,19 +2,8 @@
 #A program that records user input labelling it as either Assets , Liabilities, or Equity.
 
 import time
+import docx
 time.sleep(0.5)
-
-#Basic Printing To the User
-print('----------------------------------------------------------')
-print('Welcome. This program is a work in progress and may have')
-print('a lot of issues. For any problems, simply raise an issue')
-print('at the github page where you got this program.')
-print('----------------------------------------------------------')
-print('')
-print("The basic accounting equation is: Total Assets = Liabilities + Owner's Capital_Value - Withdrawals + Revenues - Expenses")
-print('Fixed, intangible, and current assets are found under ASSETS. Expenses, revenues, and Withdrawals are under CAPITAL/EQUITY')
-print('Keep this in mind when using the program')
-print('')
 
 time.sleep(1)
 def variables():
@@ -63,25 +52,24 @@ def start_program():
     user_choice = input("Enter 'Assets', 'Liabilities', or 'Capital':")
     print('-'*20)
     time.sleep(0.5)
-    print('Follow all instructions carefully. If there are any irregularities, visit https://github.com/04raymond/Py-Accounting.')
 
     if user_choice == 'Assets':
-        asset_type = input("What type of assets is it? 'F' for fixed, 'C' for current, 'I' for intangible:")
-        if asset_type == 'C':
+        asset_entry = input("What entry of assets is it? 'F' for fixed, 'C' for current, 'I' for intangible:")
+        if asset_entry == 'C':
             current_asset_record()
-        elif asset_type == 'F':
+        elif asset_entry == 'F':
             fixed_asset_record()
-        elif asset_type =='I':
+        elif asset_entry =='I':
             intangible_asset_record()
         else:
             print('Sorry, that is an invalid syntax.')
             time.sleep(0.5)
             start_program()
     elif user_choice == 'Capital':
-        capital_type = input("'R' for revenue and 'E' for expenses. If none, enter [n]:")
-        if capital_type == 'R':
+        capital_entry = input("'R' for revenue and 'E' for expenses. If none, enter [n]:")
+        if capital_entry == 'R':
             revenue_record()
-        elif capital_type == 'E':
+        elif capital_entry == 'E':
             expense_record()
         else:
             recording(user_choice)
@@ -97,18 +85,13 @@ def Withdrawal_record():
 
     print("\n")
     for i in range(0, n):
-        print("Enter the expenses incurred", i, )
+        print("Withdrawal #", i+1, ':', sep='')
         withdraw = input()
         Withdrawal.append(withdraw)
-    print("You have entered ", Withdrawal)
-    time.sleep(0.5)
-    print("\n")
-    for i in range(0, n):
-        print("Enter the expense value for ", i, )
-        withdrawn = eval(input())
+        print("You have entered ", Withdrawal)
+        print("Value of Withdrawal #", i+1, ':', sep='')
+        withdrawn = int(input())
         Withdrawal_value.append(withdrawn)
-    print("You have entered ", Expenditure_Cost)
-    time.sleep(0.5)
     #shows what user have entered
     print('You have entered the following account title(s):',Withdrawal)
     print('You have entered the following asset value:',Withdrawal_value)
@@ -122,22 +105,17 @@ def Withdrawal_record():
         recording(user_choice)    
 
 def expense_record():
-    n = int(input("How many expense entries incurred?: "))
+    n = int(input("How many Expense Entries incurred?: "))
 
     print("\n")
     for i in range(0, n):
-        print("Enter the expenses incurred", i, )
-        expense = input()
-        Expenditures.append(expense)
-    print("You have entered ", Expenditures)
-    time.sleep(0.5)
-    print("\n")
-    for i in range(0, n):
-        print("Enter the expense value for ", i, )
-        expensevalue = eval(input())
-        Expenditure_Cost.append(expensevalue)
-    print("You have entered ", Expenditure_Cost)
-    time.sleep(0.5)
+        print("Expense #", i+1, ':', sep='')
+        entry = input()
+        Expenditures.append(entry)
+        print("You have entered ", Expenditures)
+        print("Value of Expense #", i+1, ':', sep='')
+        value = int(input())
+        Expenditure_Cost.append(value)
     #shows what user have entered
     print('You have entered the following account title(s):',Expenditures)
     print('You have entered the following asset value:',Expenditure_Cost)
@@ -148,24 +126,20 @@ def expense_record():
         Retry_parameter()
     elif user_confirmation=='n':
         time.sleep(0.5)
-        recording(user_choice)    
+        recording(user_choice)   
+
 def revenue_record():
-    n = int(input("How many revenue entries?: "))
+    n = int(input("How many Revenue Entries incurred?: "))
 
     print("\n")
     for i in range(0, n):
-        print("Enter the revenue/transaction name incurred", i, )
-        revenue = input()
-        Revenues.append(revenue)
-    print("You have entered ", Revenues)
-    time.sleep(0.5)
-    print("\n")
-    for i in range(0, n):
-        print("Enter the asset value for ", i, )
-        revenuevalue = eval(input())
-        Revenue_Quantity.append(revenuevalue)
-    print("You have entered ", Revenue_Quantity)
-    time.sleep(0.5)
+        print("Revenue #", i+1, ':', sep='')
+        entry = input()
+        Revenues.append(entry)
+        print("You have entered ", Revenues)
+        print("Value of Revenue #", i+1, ':', sep='')
+        value = int(input())
+        Revenue_Quantity.append(value)
     #shows what user have entered
     print('You have entered the following account title(s):',Revenues)
     print('You have entered the following asset value:',Revenue_Quantity)
@@ -177,23 +151,20 @@ def revenue_record():
     elif user_confirmation=='n':
         time.sleep(0.5)
         recording(user_choice)
+
 def intangible_asset_record():
-    n = int(input("How many asset account titles?: "))
+
+    n = int(input("How many Assets?: "))
 
     print("\n")
     for i in range(0, n):
-        print("Enter the asset", i, )
-        asset = input()
-        Intangible_Assets.append(asset)
-    print("You have entered ", Intangible_Assets)
-    time.sleep(0.5)
-    print("\n")
-    for i in range(0, n):
-        print("Enter the asset value for ", i, )
-        assetvalue = eval(input())
-        Intangible_Assets_Value.append(assetvalue)
-    print("You have entered ", Intangible_Assets_Value)
-    time.sleep(0.5)
+        print("Asset #", i+1, ':', sep='')
+        entry = input()
+        Intangible_Assets.append(entry)
+        print("You have entered ", Intangible_Assets)
+        print("Value of Asset #", i+1, ':', sep='')
+        value = int(input())
+        Intangible_Assets_Value.append(value)
     #shows what user have entered
     print('You have entered the following account title(s):',Intangible_Assets)
     print('You have entered the following asset value:',Intangible_Assets_Value)
@@ -207,21 +178,18 @@ def intangible_asset_record():
         recording(user_choice)
 
 def current_asset_record():
-    n = int(input("How many asset account titles?: "))
+    n = int(input("How Assets?: "))
+
     print("\n")
     for i in range(0, n):
-        print("Enter the asset", i, )
-        asset = input()
-        Current_Assets.append(asset)
-    print("You have entered ", Current_Assets)
-    time.sleep(0.5)
-    print("\n")
-    for i in range(0, n):
-        print("Enter the asset value for ", i, )
-        assetvalue = eval(input())
-        Current_Assets_Value.append(assetvalue)
-    print("You have entered ", Current_Assets_Value)
-    time.sleep(0.5)
+        print("Asset #", i+1, ':', sep='')
+        entry = input()
+        Current_Assets.append(entry)
+        print("You have entered ", Current_Assets)
+        print("Value of Asset #", i+1, ':', sep='')
+        value = int(input())
+        Current_Assets_Value.append(value)
+ 
     #shows what user have entered
     print('You have entered the following account title(s):',Current_Assets)
     print('You have entered the following asset value:',Current_Assets_Value)
@@ -233,24 +201,20 @@ def current_asset_record():
     elif user_confirmation == 'n':
         time.sleep(0.5)
         recording(user_choice)
+        
 def fixed_asset_record():
-    n = int(input("How many asset account titles?: "))
-    
+
+    n = int(input("How Assets?: "))
 
     print("\n")
     for i in range(0, n):
-        print("Enter the asset", i, )
-        asset = input()
-        Fixed_Assets.append(asset)
-    print("You have entered ", Fixed_Assets)
-    time.sleep(0.5)
-    print("\n")
-    for i in range(0, n):
-        print("Enter the asset value for ", i, )
-        assetvalue = eval(input())
-        Fixed_Assets_Value.append(assetvalue)
-    print("You have entered ", Fixed_Assets_Value)
-    time.sleep(0.5)
+        print("Asset #", i+1, ':', sep='')
+        entry = input()
+        Fixed_Assets.append(entry)
+        print("You have entered ", Fixed_Assets)
+        print("Value of Asset #", i+1, ':', sep='')
+        value = int(input())
+        Fixed_Assets_Value.append(value)
     #shows what user have entered
     print('You have entered the following account title(s):',Fixed_Assets)
     print('You have entered the following asset value:',Fixed_Assets_Value)
@@ -265,21 +229,18 @@ def fixed_asset_record():
 
 def recording(user_choice):
     if user_choice=='Liabilities':
-        n = int(input("How many liability account titles?: "))
+        n = int(input("How Assets?: "))
 
         print("\n")
         for i in range(0, n):
-            print("Enter the liability", i, )
-            liability = input()
-            Current_Liabilities.append(liability)
-        print("You have entered ", Current_Liabilities)
-        time.sleep(0.5)
-        print("\n")
-        for i in range(0, n):
-            print("Enter the asset value for ", i, )
-            liabilityvalue = eval(input())  
-            Current_Liabilities_Amount.append(liabilityvalue)
-        time.sleep(0.5)
+            print("Liability #", i+1, ':', sep='')
+            entry = input()
+            Current_Liabilities.append(entry)
+            print("You have entered ", Current_Liabilities)
+            print("Value of Liability #", i+1, ':', sep='')
+            value = int(input())
+            Current_Liabilities_Amount.append(value)
+
         #shows what user have entered
         print('You have entered the following account title(s):',Current_Liabilities)
         print('You have entered the following liability values(s)',Current_Liabilities_Amount)
@@ -292,21 +253,17 @@ def recording(user_choice):
             time.sleep(0.5)
             recording(user_choice)
     elif user_choice=='Capital_Value':
-        n = int(input("How many Capital_Value account titles?: "))
+        n = int(input("How Assets?: "))
 
         print("\n")
         for i in range(0, n):
-            print("Enter the Capital_Value Account Title", i, )
-            capital = input()
-            Capital_Entry.append(capital)
-        print("You have entered ", Capital_Entry)
-        time.sleep(0.5)
-        print("\n")
-        for i in range(0, n):
-            print("Enter the Capital_Value value for ", i, )
-            capitalvalue = eval(input())
-            Capital_Value.append(capitalvalue)
-        time.sleep(0.5)
+            print("Capital/Equity #", i+1, ':', sep='')
+            entry = input()
+            Capital_Entry.append(entry)
+            print("You have entered ", Capital_Entry)
+            print("Value of Capital/Equity #", i+1, ':', sep='')
+            value = int(input())
+            Capital_Value.append(value)
         #shows what user have entered
         print('You have entered the following account title(s):',Capital_Entry)
         print('You have entered the following capital values(s)',Capital_Value)
