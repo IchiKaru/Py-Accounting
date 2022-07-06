@@ -1,10 +1,10 @@
 # Definition of Accounting
 Accounting is the recording of financial transactions along with storing, sorting, retrieving, summarizing, and presenting the results in various reports and analyses. Accounting is also a field of study and profession dedicated to carrying out those tasks.
 
-Financial Accounting
+# Financial Accounting
 One part of accounting focuses on presenting the financial information in the form of general-purpose financial statements (balance sheet, income statement, etc.) that are distributed to people outside of the company. These external reports must be prepared in accordance with generally accepted accounting principles often referred to as GAAP or US GAAP.
 
-Management Accounting
+# Management Accounting
 Another part of accounting focuses on providing a company's management with the information needed to keep the business financially healthy. Although some of the information comes from recorded transactions, many of the analyses and reports include estimated and projected amounts based on various assumptions. Generally, this information is not distributed to people outside of the company's management. A few examples of this information are budgets, standards for controlling operations, and estimating selling prices when quoting prices for new work.
 
 # Other Examples of Accounting
@@ -28,3 +28,5 @@ And since it so good with data manipulation, it is the go to for my little proje
 
 # What is the end-product of Py-Accounting?
 Since Python can do anything these days, the target end-product will be a word document completely done by Python, with pre-applied styling and proper calculations. 
+
+Via <a href="https://python-docx.readthedocs.io/en/latest/">Python - Docx Project</a>
