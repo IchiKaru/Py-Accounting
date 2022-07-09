@@ -2,7 +2,8 @@
 #A program that records user input labelling it as either Assets , Liabilities, or Equity.
 
 import time
-import docx
+from docx import *
+from docx.enum.style import *
 time.sleep(0.5)
 
 time.sleep(1)
@@ -46,14 +47,14 @@ def variables():
     #global variables
     global user_choice
 
-def start_program():
+def start_program(): #The very first thing that happens in the process. 
     print('What do you choose to Record?')
     time.sleep(1.5)
     user_choice = input("Enter 'Assets', 'Liabilities', or 'Capital':")
     print('-'*20)
     time.sleep(0.5)
 
-    if user_choice == 'Assets':
+    if user_choice == 'Assets': #If the user entered 'Assets' in the first question.
         asset_entry = input("What entry of assets is it? 'F' for fixed, 'C' for current, 'I' for intangible:")
         if asset_entry == 'C':
             current_asset_record()
@@ -61,18 +62,21 @@ def start_program():
             fixed_asset_record()
         elif asset_entry =='I':
             intangible_asset_record()
-        else:
+        else: #If neither of the user's choice was 'C', 'F', or 'I'.
             print('Sorry, that is an invalid syntax.')
             time.sleep(0.5)
             start_program()
-    elif user_choice == 'Capital':
+    elif user_choice == 'Capital': #if the user entered 'Capital' in the first question.
         capital_entry = input("'R' for revenue and 'E' for expenses. If none, enter [n]:")
         if capital_entry == 'R':
             revenue_record()
         elif capital_entry == 'E':
             expense_record()
-        else:
+        elif capital_entry == 'n':
             recording(user_choice)
+        else:
+            print('That is an invalid syntax. Try Again.')
+            start_program()
     else:
         recording(user_choice)
 
@@ -80,7 +84,7 @@ def start_program():
 def choice_handle(user_choice):
 	recording(user_choice)
 
-def Withdrawal_record():
+def Withdrawal_record(): #Recording of withdrawals
     n = int(input("How many Withdrawal entries incurred?: "))
 
     print("\n")
@@ -104,7 +108,7 @@ def Withdrawal_record():
         time.sleep(0.5)
         recording(user_choice)    
 
-def expense_record():
+def expense_record(): #recording of expenses
     n = int(input("How many Expense Entries incurred?: "))
 
     print("\n")
@@ -128,7 +132,7 @@ def expense_record():
         time.sleep(0.5)
         recording(user_choice)   
 
-def revenue_record():
+def revenue_record(): #Recording of Revenue
     n = int(input("How many Revenue Entries incurred?: "))
 
     print("\n")
@@ -152,7 +156,7 @@ def revenue_record():
         time.sleep(0.5)
         recording(user_choice)
 
-def intangible_asset_record():
+def intangible_asset_record(): #Recording of Intangible Assets such as goodwill or customer care service ratings.
 
     n = int(input("How many Assets?: "))
 
@@ -177,8 +181,8 @@ def intangible_asset_record():
         time.sleep(0.5)
         recording(user_choice)
 
-def current_asset_record():
-    n = int(input("How Assets?: "))
+def current_asset_record(): #Recording of current assets such as cash, furnitures, etc.
+    n = int(input("How many assets?: "))
 
     print("\n")
     for i in range(0, n):
@@ -202,9 +206,9 @@ def current_asset_record():
         time.sleep(0.5)
         recording(user_choice)
         
-def fixed_asset_record():
+def fixed_asset_record(): #Recording of fixed assets such as building and land.
 
-    n = int(input("How Assets?: "))
+    n = int(input("How many assets?: "))
 
     print("\n")
     for i in range(0, n):
@@ -228,8 +232,8 @@ def fixed_asset_record():
         recording(user_choice)
 
 def recording(user_choice):
-    if user_choice=='Liabilities':
-        n = int(input("How Assets?: "))
+    if user_choice=='Liabilities': #Recording of liability such as accounts and tax payables.
+        n = int(input("How many liabilities?: "))
 
         print("\n")
         for i in range(0, n):
@@ -252,8 +256,8 @@ def recording(user_choice):
         elif user_confirmation=='n':
             time.sleep(0.5)
             recording(user_choice)
-    elif user_choice=='Capital_Value':
-        n = int(input("How Assets?: "))
+    elif user_choice=='Capital': #Recording of capital/equity of the owner or a shareholder.
+        n = int(input("How many assets?: "))
 
         print("\n")
         for i in range(0, n):
@@ -275,20 +279,18 @@ def recording(user_choice):
         elif user_confirmation=='n':
             time.sleep(0.5)
             recording(user_choice)
-    else:
+    else: #Catches all uneccessary inputs to avoid encountering errors.
         print("Only 'l' or 'c' . Try again")
         time.sleep(0.5)
         start_program()
 
-def Retry_parameter():
+def Retry_parameter(): #Only appears when the recorded values are correct and asks if the user want to record again.
     time.sleep(0.5)
     again=input('Would you like to record again? [y,n]: ')
     if again=='y':
         start_program()
     elif again=='n':
         print('The values you have recorded are now stored on RAM. To avoid loss, do not quit the application.')
-        print('Capital_Value:', Capital_Entry)
-        print('Total Capital_Value:', sum(Capital_Value))
         print('-'*20)
         for a, b in zip(Current_Assets, Current_Assets_Value):
             print(a, b)  
@@ -305,6 +307,15 @@ def Retry_parameter():
         for a, b in zip(Capital_Entry, Capital_Value):
             print(a, b)
         print('-'*20)
+        for a, b in zip(Revenues, Revenue_Quantity):
+            print(a,b)
+        print('-'*20)
+        for a, b in zip(Expenditures, Expenditure_Cost):
+            print(a, b)
+        print('-'*20)
+        for a, b in zip(Withdrawal, Withdrawal_value):
+            print(a, b)
+        
 
 variables()
 start_program()
@@ -337,4 +348,23 @@ if check=='y':
                 print('ok.')
 else:
     print("Your recorded values are now gone. Sorry, this is a work in progress. Hahaha!") 
-	
+#Phase 2 of the project 
+document = Document()
+
+document.add_heading('Balance Sheet', 0)
+
+p = document.add_paragraph( 'Hello there, this is a test document from Py-Accounting Software in trial mode. You are seeing this message because it is the defualt. It will be removed once all necessary to do things are completed. Otherwise, you ')
+p.add_run('may or may not delete ').bold = True
+p.add_run('this message.')
+
+
+
+
+
+document.save = Document(r'C:\Users\Student\Documents\Variable-docx(es)\TestDemo.docx')
+
+
+#Test Add ons
+"""p.add_run('bold').bold = True
+p.add_run(' and some ') 
+p.add_run('italic.').italic = True"""
